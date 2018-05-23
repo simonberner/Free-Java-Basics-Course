@@ -17,7 +17,7 @@ class InheritMe
     }
 }
 
-//So K_Inheritance is inheriting the class InheritMe
+//So K_Inheritance is inheriting the inner class InheritMe
 //Again using the keyword extends
 public class K_Inheritance extends InheritMe
 {
@@ -26,7 +26,7 @@ public class K_Inheritance extends InheritMe
     public K_Inheritance()
     {
         //If you look at InteritMe class, you will see the constructor has a parameter
-        //But as our code doesnt create a new instance of InheritMe, it creates a new instance of K_Inhertiance which extends InheritMe, we need a way to pass the parameter to the superclass.
+        //But as our code doesn't create a new instance of InheritMe, it creates a new instance of K_Inhertiance which extends InheritMe, we need a way to pass the parameter to the superclass.
         //Otherwise the class won't compile, because it needs that parameter.
         //So we have to pass the parameter using the 'super' keyword
         super("richard");

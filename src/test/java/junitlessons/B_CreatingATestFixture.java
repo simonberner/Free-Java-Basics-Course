@@ -1,32 +1,37 @@
 package junitlessons;
 
-import org.junit.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class B_CreatingATestFixture
-{
+public class B_CreatingATestFixture {
     //This method will be called before each test
-    @Before
-    public void SetUp()
-    {
-        System.out.println("I'm doing something to setup the system ready for the test");
+    @BeforeEach
+    public void SetUp() {
+        System.out.println("I'm doing something to setup the system ready BEFORE each single test");
     }
 
     //This method will be called after each test
-    @After
-    public void Teardown()
-    {
-        System.out.println("I'm doing something to tidy up after the test");
+    @AfterEach
+    public void Teardown() {
+        System.out.println("I'm doing something to tidy up AFTER each single test");
     }
 
     @Test
-    public void TestOne()
-    {
-        System.out.println("I'm a test doing some stuff");
+    public void TestOne() {
+        System.out.println("I'm a test1 doing some stuff");
+    }
+
+    @Test
+    public void TestTwo() {
+        System.out.println("I'm a test2 doing some stuff");
     }
 
     /**
      * The output of running with just the above code would be
-     *
+     * <p>
      * I'm doing something to setup the system ready for the test
      * I'm a test doing some stuff
      * I'm doing something to tidy up after the test
@@ -34,18 +39,15 @@ public class B_CreatingATestFixture
 
     //We can go one step further.
     //JUnit also has @BeforeClass and @AfterClass, these have to be static.
-
-    @BeforeClass
-    public static void SuiteSetUp()
-    {
-        System.out.println("I'm doing something to setup the system ready for this test fixture");
+    @BeforeAll
+    public static void SuiteSetUp() {
+        System.out.println("@BeforeClass running before ALL tests: I'm doing something to setup the system ready for this test fixture");
     }
 
     //This method will be called after each test
-    @AfterClass
-    public static void SuiteTeardown()
-    {
-        System.out.println("I'm doing something to tidy up after this test fixture");
+    @AfterAll
+    public static void SuiteTeardown() {
+        System.out.println("@AfterClass running after ALL tests: I'm doing something to tidy up after this test fixture");
     }
 
     /**
